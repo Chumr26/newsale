@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-  <!-- <template id="report_assets_common_custom_fonts" name="Custom QWeb fonts"
-    inherit_id="web.report_assets_common">
-    <xpath expr="." position="inside">
-      <link href="/new_sale/static/src/less/fonts.less" rel="stylesheet" type="text/less" />
-    </xpath>
-  </template> -->
   <template id="external_layout_standard_edit" inherit_id="web.external_layout_standard">
     <xpath expr="//div[@class='col-3 mb4']/img" position="attributes">
       <attribute name="style">max-height: 120px;</attribute>
@@ -13,12 +7,13 @@
     <xpath expr="//div[@class='col-9 text-end'][1]" position="replace">
       <t t-call-assets="icon.awesome" />
       <div class="col-9" style="margin-top:20px; margin-bottom:40px">
+        <div style="" t-esc="company.report_footer" />
         <div t-esc="company.name" style="font-size: 40px; font-weight: bold; text-align: center " />
         <br />
         <div style="text-align: left; margin-left: 30px">
-          <t t-esc="company.partner_id"
-            t-options='{"widget": "contact", "fields": ["address"]}' />
-        </div>
+          <i class="fa-map-pin" style="font-style: normal;"></i>
+          <t t-esc="company.street" />, <t t-esc="company.street2" />, <t t-esc="company.city" />, <t
+            t-esc="company.state_id.name" />, <t t-esc="company.country_id.name" />.</div>
         <div class="row" style="margin: 10px 0 0 35px">
           <div class="col-3">
             <t t-if="company.vat">
@@ -31,7 +26,7 @@
             <t t-esc="company.partner_id.phone" />
           </div>
           <div class="col-3" style="display: inline">
-            <i class="far fa-envelope"></i>
+            <i class="far fa-envelope" style="font-style: normal;"></i>
             <t t-esc="company.partner_id.email" />
           </div>
         </div>
@@ -44,13 +39,6 @@
     </xpath>
   </template>
   <template id="report_delivery_document_edited" inherit_id="stock.report_delivery_document">
-    <!-- <xpath expr="//t[1]/t[1]/t[1]" position="before">
-      <style>
-        body {
-        font-family: 'Courier New', Courier, monospace;
-        }
-      </style>
-    </xpath> -->
     <xpath expr="//t[3]/div[1]/div[1]/span[1]/strong[1]" position="replace">
       <strong>Thông tin khách hàng:</strong>
     </xpath>
