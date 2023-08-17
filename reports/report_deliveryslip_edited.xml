@@ -96,6 +96,8 @@
         </div>
       </div>
     </xpath>
+    <xpath expr="//div[@class='page'][1]/t[2]" position="replace" />
+   <!-- loại bỏ trường hợp backorder -->
   </template>
   <template id="stock_report_delivery_aggregated_move_lines_edited"
     inherit_id="stock.stock_report_delivery_aggregated_move_lines">
