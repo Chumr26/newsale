@@ -18,6 +18,9 @@ class SaleOrder(models.Model):
         string="Đặt hàng",
         default=lambda self: fields.Date.today()
     )
+    is_admin = fields.Boolean(
+        compute="_compute_is_admin"
+    )
     vnd_rate = fields.Float(
         string="Tỷ giá",
         readonly="True",
@@ -86,3 +89,7 @@ class SaleOrder(models.Model):
     def _onchange_partner_id(self):
         # Clear the values of dependent fields
         self.order_line = False
+
+    def _compute_is_admin(self):
+        sale_admin = self.env.ref('sales_team.group_sale_manager')
+        self.is_admin = sale_admin in self.env.user.groups_id
