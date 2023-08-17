@@ -62,7 +62,8 @@
 					<attribute name="widget" />
 				</field>
 				<field name="partner_id" position="after">
-					<field name="vnd_rate" />
+					<field name="vnd_rate" readonly="False" attrs="{'readonly': [('is_admin', '!=', True)]}"/>
+					<field name="is_admin" invisible="1"/>
 				</field>
 				<!-- filter products base on customer -->
 				<field name="product_template_id" position="after">
