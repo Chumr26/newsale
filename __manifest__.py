@@ -38,6 +38,6 @@
         'demo/demo.xml',
     ],
     "icon.awesome": [
-        "newsale\static\src\fontawesome"
+        "newsale/static/src/fontawesome"
     ]
 }

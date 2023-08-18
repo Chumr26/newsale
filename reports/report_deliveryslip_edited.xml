@@ -7,7 +7,6 @@
     <xpath expr="//div[@class='col-9 text-end'][1]" position="replace">
       <t t-call-assets="icon.awesome" />
       <div class="col-9" style="margin-top:20px; margin-bottom:40px">
-        <div style="" t-esc="company.report_footer" />
         <div t-esc="company.name" style="font-size: 40px; font-weight: bold; text-align: center " />
         <br />
         <div style="text-align: left; margin-left: 30px">
@@ -36,6 +35,12 @@
     </xpath>
     <xpath expr="//div[@class='col-12'][1]/div[1]" position="replace">
       <div style="border-bottom: 1px solid black; margin: 0 auto; width: 400px;"></div>
+    </xpath>
+    <xpath expr="//div[@class='text-muted'][1]" position="after">
+      <div>
+        <span>Powered by</span>
+        <img src='/newsale/static/src/img/t4tek_logo.jpg' width="100" />
+      </div>
     </xpath>
   </template>
   <template id="report_delivery_document_edited" inherit_id="stock.report_delivery_document">
@@ -97,7 +102,7 @@
       </div>
     </xpath>
     <xpath expr="//div[@class='page'][1]/t[2]" position="replace" />
-   <!-- loại bỏ trường hợp backorder -->
+    <!-- loại bỏ trường hợp backorder -->
   </template>
   <template id="stock_report_delivery_aggregated_move_lines_edited"
     inherit_id="stock.stock_report_delivery_aggregated_move_lines">
