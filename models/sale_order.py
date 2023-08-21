@@ -38,6 +38,9 @@ class SaleOrder(models.Model):
             self.env.ref('base.VND').id
         )
     )
+    company_id= fields.Many2one(
+        default=1
+    )
 
     def action_confirm(self):
         """ Confirm the given quotation(s) and set their confirmation date.

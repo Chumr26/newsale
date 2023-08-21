@@ -99,8 +99,8 @@
       </tr>
     </xpath>
     <xpath expr="//table[@class='table table-sm mt48'][1]" position="after">
-      <div name="signature" class="row">
-        <div class="col-6" style="text-align: center;">
+      <div name="signature" class="row" style="margin-top: 25px;">
+        <div class="col-6" style="text-align: center; margin-top: 24px;">
           <strong>Người lập phiếu</strong>
           <br />
           <span>(Ký, họ tên)</span>
