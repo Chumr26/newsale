@@ -6,7 +6,7 @@
     </xpath>
     <xpath expr="//div[@class='col-9 text-end'][1]" position="replace">
       <t t-call-assets="icon.awesome" />
-      <div class="col-9" style="margin-top:20px; margin-bottom:40px">
+      <div class="col-9" style="margin-top:20px; margin-bottom:15px">
         <div t-esc="company.name" style="font-size: 40px; font-weight: bold; text-align: center " />
         <br />
         <div style="text-align: left; margin-left: 30px">
@@ -34,14 +34,27 @@
     <xpath expr="//div[@class='row'][2]" position="replace">
     </xpath>
     <xpath expr="//div[@class='col-12'][1]/div[1]" position="replace">
-      <div style="border-bottom: 1px solid black; margin: 0 auto; width: 400px;"></div>
+      <div style="border-bottom: 1px solid black; margin: 0 auto; width: 900px;"></div>
     </xpath>
-    <xpath expr="//div[@class='text-muted'][1]" position="after">
+    <!-- footer -->
+    <xpath expr="//div[@class='text-center'][1]" position="attributes">
+      <attribute name="class"></attribute>
+    </xpath>
+    <xpath expr="//div[@class='text-muted'][1]" position="replace">
       <div>
-        <span>Powered by</span>
-        <img src='/newsale/static/src/img/t4tek_logo.jpg' width="100" />
+        <span>
+          <span>Powered by</span>
+          <img src='/newsale/static/src/img/t4tek_logo.jpg' width="100" />
+          <span> | t4tek.co | contact@t4tek.co | tel. 0965643046</span>
+        </span>
+        <span t-if="report_type == 'pdf'" class="text-muted" style="float: right;">
+          Page: 
+          <span class="page"/> / 
+          <span class="topage"/>
+        </span>
       </div>
     </xpath>
+    <!--  -->
   </template>
   <template id="report_delivery_document_edited" inherit_id="stock.report_delivery_document">
     <xpath expr="//t[3]/div[1]/div[1]/span[1]/strong[1]" position="replace">
