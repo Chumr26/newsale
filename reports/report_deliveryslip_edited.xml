@@ -11,7 +11,8 @@
         <br />
         <div style="text-align: left; margin-left: 30px">
           <i class="fa-map-pin" style="font-style: normal;"></i>
-          <t t-esc="company.street" />, <t t-esc="company.street2" />, <t t-esc="company.city" />, <t
+          <t t-esc="company.street" />, <t
+            t-esc="company.street2" />, <t t-esc="company.city" />, <t
             t-esc="company.state_id.name" />, <t t-esc="company.country_id.name" />.</div>
         <div class="row" style="margin: 10px 0 0 35px">
           <div class="col-3">
@@ -47,10 +48,8 @@
           <img src='/newsale/static/src/img/t4tek_logo.jpg' width="100" />
           <span> | t4tek.co | contact@t4tek.co | tel. 0965643046</span>
         </span>
-        <span t-if="report_type == 'pdf'" class="text-muted" style="float: right;">
-          Page: 
-          <span class="page"/> / 
-          <span class="topage"/>
+        <span t-if="report_type == 'pdf'" class="text-muted" style="float: right;"> Page: <span
+            class="page" /> / <span class="topage" />
         </span>
       </div>
     </xpath>
@@ -122,24 +121,26 @@
     <xpath expr="//tr[1]" position="replace">
       <t t-set="counter" t-value="1" />
       <tr t-foreach="aggregated_lines" t-as="line">
-        <td style="text-align: center;">
-          <span t-esc="counter" />
-          <t t-set="counter" t-value="counter + 1" />
-        </td>
-        <td style="text-align: center;">
-          <span t-esc="aggregated_lines[line]['name']" />
-          <p t-if="aggregated_lines[line]['description']">
-            <span t-esc="aggregated_lines[line]['description']" />
-          </p>
-        </td>
-        <td class="text-center" name="move_line_aggregated_qty_done">
-          <t t-if="aggregated_lines[line]['qty_done']">
-            <span t-esc="aggregated_lines[line]['qty_done']"
-              t-options="{'widget': 'float', 'decimal_precision': 'Product Unit of Measure'}" />
-          </t>
-        </td>
-        <td>
-        </td>
+        <t t-if="aggregated_lines[line]['qty_done']">
+          <td style="text-align: center;">
+            <span t-esc="counter" />
+            <t t-set="counter" t-value="counter + 1" />
+          </td>
+          <td style="text-align: center;">
+            <span t-esc="aggregated_lines[line]['name']" />
+            <p t-if="aggregated_lines[line]['description']">
+              <span t-esc="aggregated_lines[line]['description']" />
+            </p>
+          </td>
+          <td class="text-center" name="move_line_aggregated_qty_done">
+            <t t-if="aggregated_lines[line]['qty_done']">
+              <span t-esc="aggregated_lines[line]['qty_done']"
+                t-options="{'widget': 'float', 'decimal_precision': 'Product Unit of Measure'}" />
+            </t>
+          </td>
+          <td>
+          </td>
+        </t>
       </tr>
     </xpath>
   </template>
